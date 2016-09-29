@@ -34,10 +34,6 @@
   <description>Task management add-on parent POM</description>
   <modules>
     <module>services</module>
-    <module>task-management</module>
-    <module>packaging</module>
-    <module>injector</module>
-    <module>integration</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/task.git</connection>

@@ -36,11 +36,6 @@
     <key>org.exoplatform.task.service.TaskParser</key>
     <type>org.exoplatform.task.service.impl.TaskParserImpl</type>
   </component>    
-  
-  <component>
-    <type>org.exoplatform.task.integration.SpaceTaskAppInstaller</type>
-  </component>
-  
   <external-component-plugins>
     <target-component>org.exoplatform.commons.api.persistence.DataInitializer</target-component>
     <component-plugin>
