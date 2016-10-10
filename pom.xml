@@ -26,12 +26,12 @@
     <groupId>org.exoplatform.addons</groupId>
     <version>6</version>
   </parent>
-  <groupId>org.exoplatform.addons.task</groupId>
-  <artifactId>task-management-parent</artifactId>
-  <version>1.1.0</version>
+  <groupId>net.wyun.exo.db</groupId>
+  <artifactId>qys-db-parent</artifactId>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
-  <name>Task management parent POM</name>
-  <description>Task management add-on parent POM</description>
+  <name>eXo DB parent POM</name>
+  <description>eXo DB parent POM</description>
   <modules>
     <module>services</module>
   </modules>
@@ -74,26 +74,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.addons.task</groupId>
-        <artifactId>task-management-services</artifactId>
+        <groupId>net.wyun.exo.db</groupId>
+        <artifactId>exo-db-services</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.addons.task</groupId>
-        <artifactId>task-management-integration</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.addons.task</groupId>
-        <artifactId>task-management</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.addons.task</groupId>
-        <artifactId>task-management-config</artifactId>
-        <version>${project.version}</version>
-      </dependency>
+     
       <!-- HTML Sanitizer -->
       <dependency>
         <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
