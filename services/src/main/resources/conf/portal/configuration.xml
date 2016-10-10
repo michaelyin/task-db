@@ -18,8 +18,8 @@
   </component>
 
   <component>
-    <key>org.exoplatform.task.service.UserService</key>
-    <type>org.exoplatform.task.service.impl.UserServiceImpl</type>
+    <key>net.wyun.qys.service.UserService</key>
+    <type>net.wyun.qys.service.impl.UserServiceImpl</type>
   </component>
 
   <component>
@@ -30,6 +30,15 @@
   <component>
     <key>org.exoplatform.task.service.ProjectService</key>
     <type>org.exoplatform.task.service.impl.ProjectServiceImpl</type>
+  </component>
+  
+  <component>
+    <key>net.wyun.qys.dao.QysDAOHandler</key>
+    <type>net.wyun.qys.dao.jpa.QysDAOHandlerJPAImpl</type>
+  </component>
+   <component>
+    <key>net.wyun.qys.service.PolicyService</key>
+    <type>net.wyun.qys.service.impl.PolicyServiceImpl</type>
   </component>
 
   <component>
@@ -48,6 +57,7 @@
           <description>Change logs of task management</description>
           <value>db/changelog/task.db.changelog-1.0.0.xml</value>
           <value>db/changelog/task.db.changelog-1.1.0.xml</value>
+          <value>db/changelog/task.db.changelog-1.1.1.xml</value>
         </values-param>
       </init-params>
     </component-plugin>
