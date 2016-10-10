@@ -33,6 +33,8 @@ import org.exoplatform.commons.persistence.impl.GenericDAOJPAImpl;
 import org.exoplatform.task.dao.StatusHandler;
 import org.exoplatform.task.domain.Status;
 
+import net.wyun.qys.dao.jpa.CommonJPADAO;
+
 /**
  * Created by The eXo Platform SAS
  * Author : Thibault Clement

@@ -24,7 +24,8 @@ import org.exoplatform.task.dao.ProjectHandler;
 import org.exoplatform.task.dao.StatusHandler;
 import org.exoplatform.task.dao.TaskHandler;
 import org.exoplatform.task.dao.TaskLogHandler;
-import org.exoplatform.task.dao.UserSettingHandler;
+
+import net.wyun.qys.dao.UserSettingHandler;
 
 /**
  * @author <a href="trongtt@gmail.com">Trong Tran</a>

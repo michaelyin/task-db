@@ -23,7 +23,8 @@ import java.util.StringTokenizer;
 
 import org.exoplatform.commons.utils.HTMLEntityEncoder;
 import org.exoplatform.task.model.User;
-import org.exoplatform.task.service.UserService;
+
+import net.wyun.qys.service.UserService;
 
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.

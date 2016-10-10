@@ -67,9 +67,10 @@ import org.exoplatform.task.model.User;
 import org.exoplatform.task.service.ProjectService;
 import org.exoplatform.task.service.StatusService;
 import org.exoplatform.task.service.TaskService;
-import org.exoplatform.task.service.UserService;
 import org.exoplatform.web.controller.router.Router;
 import org.gatein.common.text.EntityEncoder;
+
+import net.wyun.qys.service.UserService;
 
 /**
  * Created by The eXo Platform SAS

@@ -21,6 +21,8 @@ import java.io.Serializable;
 import org.exoplatform.task.dao.LabelTaskMappingHandler;
 import org.exoplatform.task.domain.LabelTaskMapping;
 
+import net.wyun.qys.dao.jpa.CommonJPADAO;
+
 public class LabelTaskMappingDAOImpl extends CommonJPADAO<LabelTaskMapping, Serializable> implements LabelTaskMappingHandler {
 }
 

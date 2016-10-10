@@ -26,8 +26,10 @@ import org.exoplatform.task.domain.Project;
 import org.exoplatform.task.domain.Status;
 import org.exoplatform.task.domain.Task;
 import org.exoplatform.task.domain.ChangeLog;
-import org.exoplatform.task.domain.UserSetting;
 import org.exoplatform.task.service.impl.AbstractDAOHandler;
+
+import net.wyun.qys.dao.jpa.UserSettingDAO;
+import net.wyun.qys.domain.UserSetting;
 
 /**
  * Created by The eXo Platform SAS
@@ -52,7 +54,7 @@ public class DAOHandlerJPAImpl extends AbstractDAOHandler implements DAOHandler 
     ltmHandler = new LabelTaskMappingDAOImpl();
     LOG.info("DAOHandlerJPAImpl is created");
   }
-  static <E> E clone(E e) {
+  public static <E> E clone(E e) {
     if (e == null) return null;
     if (e instanceof Task) {
       return (E)((Task)e).clone();

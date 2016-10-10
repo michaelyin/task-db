@@ -49,6 +49,8 @@ import org.exoplatform.task.dao.condition.SingleCondition;
 import org.exoplatform.task.domain.Status;
 import org.exoplatform.task.domain.Task;
 
+import net.wyun.qys.dao.jpa.CommonJPADAO;
+
 /**
  * Created by The eXo Platform SAS
  * Author : Thibault Clement

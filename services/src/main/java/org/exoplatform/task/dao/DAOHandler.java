@@ -19,6 +19,8 @@
 
 package org.exoplatform.task.dao;
 
+import net.wyun.qys.dao.UserSettingHandler;
+
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */

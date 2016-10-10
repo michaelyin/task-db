@@ -29,6 +29,8 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.task.dao.CommentHandler;
 import org.exoplatform.task.domain.Comment;
 
+import net.wyun.qys.dao.jpa.CommonJPADAO;
+
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */

@@ -24,6 +24,8 @@ import org.exoplatform.services.security.Identity;
 import org.exoplatform.services.security.MembershipEntry;
 import org.exoplatform.task.util.ProjectUtil;
 
+import net.wyun.qys.domain.UserSetting;
+
 import javax.persistence.*;
 
 import java.util.*;

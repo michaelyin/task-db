@@ -23,6 +23,8 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.task.dao.TaskLogHandler;
 import org.exoplatform.task.domain.ChangeLog;
 
+import net.wyun.qys.dao.jpa.CommonJPADAO;
+
 import javax.persistence.TypedQuery;
 
 /**
