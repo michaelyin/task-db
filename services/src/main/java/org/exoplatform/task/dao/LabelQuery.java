@@ -19,7 +19,8 @@
 
 package org.exoplatform.task.dao;
 
-import org.exoplatform.task.dao.condition.Conditions;
+import net.wyun.qys.dao.Query;
+import net.wyun.qys.dao.condition.Conditions;
 
 public class LabelQuery extends Query {
   public LabelQuery setUserName(String username) {

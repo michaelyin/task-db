@@ -28,7 +28,6 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.security.Identity;
 import org.exoplatform.task.AbstractTest;
-import org.exoplatform.task.dao.condition.Conditions;
 import org.exoplatform.task.domain.Label;
 import org.exoplatform.task.domain.LabelTaskMapping;
 import org.exoplatform.task.domain.Priority;
@@ -45,6 +44,9 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import net.wyun.qys.dao.OrderBy;
+import net.wyun.qys.dao.condition.Conditions;
 
 /**
  * @author <a href="trongtt@exoplatform.com">Trong Tran</a>

@@ -17,7 +17,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.exoplatform.task.dao.jpa;
+package net.wyun.qys.dao.jpa;
 
 import java.lang.reflect.Array;
 import java.util.List;
@@ -67,7 +67,7 @@ public class JPAQueryListAccess<E> implements ListAccess<E> {
         }
       }
 
-      E clone = DAOHandlerJPAImpl.clone(entity);
+      E clone = QysDAOHandlerJPAImpl.clone(entity);
       e[i] = clone != null ? clone : entity;
     }
     return e;

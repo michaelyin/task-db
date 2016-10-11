@@ -17,17 +17,17 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.exoplatform.task.dao;
+package net.wyun.qys.dao;
 
-import static org.exoplatform.task.dao.condition.Conditions.and;
-import static org.exoplatform.task.dao.condition.Conditions.eq;
+import static net.wyun.qys.dao.condition.Conditions.and;
+import static net.wyun.qys.dao.condition.Conditions.eq;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.task.dao.condition.AggregateCondition;
-import org.exoplatform.task.dao.condition.Condition;
-import org.exoplatform.task.dao.condition.Conditions;
+import net.wyun.qys.dao.condition.AggregateCondition;
+import net.wyun.qys.dao.condition.Condition;
+import net.wyun.qys.dao.condition.Conditions;
 
 public abstract class Query implements Cloneable {
 

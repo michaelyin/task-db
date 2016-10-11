@@ -16,11 +16,6 @@
 */
 package org.exoplatform.task.dao.jpa;
 
-import static org.exoplatform.task.dao.condition.Conditions.TASK_COWORKER;
-import static org.exoplatform.task.dao.condition.Conditions.TASK_MANAGER;
-import static org.exoplatform.task.dao.condition.Conditions.TASK_PARTICIPATOR;
-import static org.exoplatform.task.dao.condition.Conditions.TASK_PROJECT;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
@@ -35,6 +30,11 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import static net.wyun.qys.dao.condition.Conditions.TASK_COWORKER;
+import static net.wyun.qys.dao.condition.Conditions.TASK_MANAGER;
+import static net.wyun.qys.dao.condition.Conditions.TASK_PARTICIPATOR;
+import static net.wyun.qys.dao.condition.Conditions.TASK_PROJECT;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -42,13 +42,13 @@ import java.util.List;
 import java.util.Set;
 
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.task.dao.OrderBy;
 import org.exoplatform.task.dao.TaskHandler;
 import org.exoplatform.task.dao.TaskQuery;
-import org.exoplatform.task.dao.condition.SingleCondition;
 import org.exoplatform.task.domain.Status;
 import org.exoplatform.task.domain.Task;
 
+import net.wyun.qys.dao.OrderBy;
+import net.wyun.qys.dao.condition.SingleCondition;
 import net.wyun.qys.dao.jpa.CommonJPADAO;
 
 /**

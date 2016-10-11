@@ -29,7 +29,6 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.task.dao.DAOHandler;
-import org.exoplatform.task.dao.OrderBy;
 import org.exoplatform.task.dao.ProjectQuery;
 import org.exoplatform.task.dao.TaskQuery;
 import org.exoplatform.task.domain.Project;
@@ -40,6 +39,8 @@ import org.exoplatform.task.service.ProjectService;
 import org.exoplatform.task.service.StatusService;
 import org.exoplatform.task.service.TaskService;
 import org.exoplatform.task.util.ListUtil;
+
+import net.wyun.qys.dao.OrderBy;
 
 /**
  * Created by The eXo Platform SAS

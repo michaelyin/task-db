@@ -24,6 +24,7 @@ import org.exoplatform.task.dao.TaskLogHandler;
 import org.exoplatform.task.domain.ChangeLog;
 
 import net.wyun.qys.dao.jpa.CommonJPADAO;
+import net.wyun.qys.dao.jpa.JPAQueryListAccess;
 
 import javax.persistence.TypedQuery;
 

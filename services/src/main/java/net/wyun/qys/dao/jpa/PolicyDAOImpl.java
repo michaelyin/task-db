@@ -32,15 +32,11 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.task.dao.OrderBy;
-import org.exoplatform.task.dao.ProjectHandler;
-import org.exoplatform.task.dao.ProjectQuery;
-import org.exoplatform.task.dao.condition.Conditions;
-import org.exoplatform.task.dao.condition.SingleCondition;
-import org.exoplatform.task.domain.Project;
-import org.exoplatform.task.domain.Task;
 
+import net.wyun.qys.dao.OrderBy;
 import net.wyun.qys.dao.PolicyHandler;
+import net.wyun.qys.dao.condition.Conditions;
+import net.wyun.qys.dao.condition.SingleCondition;
 import net.wyun.qys.domain.Policy;
 
 /**

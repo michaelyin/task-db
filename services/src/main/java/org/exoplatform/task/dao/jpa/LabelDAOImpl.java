@@ -27,6 +27,7 @@ import org.exoplatform.task.dao.LabelQuery;
 import org.exoplatform.task.domain.Label;
 
 import net.wyun.qys.dao.jpa.CommonJPADAO;
+import net.wyun.qys.dao.jpa.JPAQueryListAccess;
 
 public class LabelDAOImpl extends CommonJPADAO<Label, Long> implements LabelHandler {
 

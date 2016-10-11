@@ -17,7 +17,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.exoplatform.task.dao.condition;
+package net.wyun.qys.dao.condition;
 
 import java.util.ArrayList;
 import java.util.Arrays;

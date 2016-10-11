@@ -41,14 +41,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.exoplatform.commons.persistence.impl.GenericDAOJPAImpl;
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.task.dao.OrderBy;
-import org.exoplatform.task.dao.Query;
-import org.exoplatform.task.dao.condition.AggregateCondition;
-import org.exoplatform.task.dao.condition.Condition;
-import org.exoplatform.task.dao.condition.SingleCondition;
-import org.exoplatform.task.dao.jpa.CommentDAOImpl;
-import org.exoplatform.task.dao.jpa.DAOHandlerJPAImpl;
-import org.exoplatform.task.dao.jpa.JPAQueryListAccess;
+
+import net.wyun.qys.dao.OrderBy;
+import net.wyun.qys.dao.Query;
+import net.wyun.qys.dao.condition.AggregateCondition;
+import net.wyun.qys.dao.condition.Condition;
+import net.wyun.qys.dao.condition.SingleCondition;
 
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
@@ -69,7 +67,7 @@ public abstract class CommonJPADAO<E, K extends Serializable> extends GenericDAO
   }
 
   protected <E> E cloneEntity(E e) {
-    return DAOHandlerJPAImpl.clone(e);
+    return QysDAOHandlerJPAImpl.clone(e);
   }
 
   @Override
@@ -95,10 +93,10 @@ public abstract class CommonJPADAO<E, K extends Serializable> extends GenericDAO
               c = cl.loadClass(name);
               getCache().put(name, c);
             } catch (Exception e) {
-              getCache().put(name, CommentDAOImpl.class);
+              getCache().put(name, Object.class);
             }
           }
-          if (c.getName().equals(CommentDAOImpl.class.getName())) {
+          if (c.getName().equals(Object.class.getName())) {
             return null;
           }
           return c;

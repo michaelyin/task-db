@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.task.dao.OrderBy;
 import org.exoplatform.task.dao.TaskQuery;
 import org.exoplatform.task.domain.Comment;
 import org.exoplatform.task.domain.Label;
@@ -12,6 +11,8 @@ import org.exoplatform.task.domain.Status;
 import org.exoplatform.task.domain.Task;
 import org.exoplatform.task.domain.ChangeLog;
 import org.exoplatform.task.exception.EntityNotFoundException;
+
+import net.wyun.qys.dao.OrderBy;
 
 /**
  * Created by TClement on 6/3/15.

@@ -20,7 +20,8 @@
 package org.exoplatform.task.util;
 
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.task.dao.jpa.JPAQueryListAccess;
+
+import net.wyun.qys.dao.jpa.JPAQueryListAccess;
 
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.

@@ -22,8 +22,9 @@ package org.exoplatform.task.dao;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.exoplatform.task.dao.condition.Condition;
-import org.exoplatform.task.dao.condition.Conditions;
+import net.wyun.qys.dao.Query;
+import net.wyun.qys.dao.condition.Condition;
+import net.wyun.qys.dao.condition.Conditions;
 
 public class ProjectQuery extends Query {
   public ProjectQuery setMembership(List<String> memberships) {

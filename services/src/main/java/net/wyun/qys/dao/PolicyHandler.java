@@ -22,7 +22,6 @@ package net.wyun.qys.dao;
 import org.exoplatform.commons.api.persistence.GenericDAO;
 
 import net.wyun.qys.domain.Policy;
-import net.wyun.qys.domain.UserSetting;
 
 /**
  */

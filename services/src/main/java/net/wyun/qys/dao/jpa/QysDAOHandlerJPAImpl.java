@@ -20,13 +20,6 @@ import javax.inject.Singleton;
 
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.task.dao.DAOHandler;
-import org.exoplatform.task.domain.Comment;
-import org.exoplatform.task.domain.Project;
-import org.exoplatform.task.domain.Status;
-import org.exoplatform.task.domain.Task;
-import org.exoplatform.task.domain.ChangeLog;
-import org.exoplatform.task.service.impl.AbstractDAOHandler;
 
 import net.wyun.qys.dao.QysDAOHandler;
 import net.wyun.qys.domain.UserSetting;

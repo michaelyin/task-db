@@ -31,7 +31,6 @@ import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.task.dao.DAOHandler;
-import org.exoplatform.task.dao.OrderBy;
 import org.exoplatform.task.dao.TaskQuery;
 import org.exoplatform.task.domain.Comment;
 import org.exoplatform.task.domain.Label;
@@ -42,6 +41,8 @@ import org.exoplatform.task.domain.ChangeLog;
 import org.exoplatform.task.exception.EntityNotFoundException;
 import org.exoplatform.task.service.TaskPayload;
 import org.exoplatform.task.service.TaskService;
+
+import net.wyun.qys.dao.OrderBy;
 
 /**
  * Created by The eXo Platform SAS
