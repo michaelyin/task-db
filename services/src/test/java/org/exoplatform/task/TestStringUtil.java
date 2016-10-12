@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.exoplatform.task.util.StringUtil;
+import net.wyun.qys.util.StringUtil;
 import org.junit.Assert;
 import org.junit.Test;
 

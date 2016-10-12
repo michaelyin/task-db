@@ -17,38 +17,37 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package net.wyun.qys.service;
+package net.wyun.qys.util;
 
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.services.security.Identity;
-import net.wyun.qys.exception.EntityNotFoundException;
-import net.wyun.qys.exception.NotAllowedOperationOnEntityException;
 
-import net.wyun.qys.domain.UserSetting;
-import net.wyun.qys.model.User;
-
-import java.util.TimeZone;
+import net.wyun.qys.dao.jpa.JPAQueryListAccess;
 
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */
-public interface UserService {
+public class ListUtil {
+  public static <E> int getSize(ListAccess<E> list) {
+    try {
+      return list.getSize();
+    } catch (Exception ex) {
+      return 0;
+    }
+  }
 
-  User loadUser(String username);
-
-  /**
-   * For now, this method is used only for search user in assignee, permission or mention.
-   * These function use username, fullName and avatar, so some other infos will be null to avoid recall organizationService
-   * @param keyword
-   * @return
-   */
-  ListAccess<User> findUserByName(String keyword);
-
-  UserSetting getUserSetting(String username);
-
-  void showHiddenProject(String username, boolean show);
-  
-  void showHiddenLabel(String username, boolean show);
-
-  TimeZone getUserTimezone(String username);
+  public static <E> E[] load(ListAccess<E> list, int start, int limit) {
+    try {
+      if (list instanceof JPAQueryListAccess) {
+        return list.load(start, limit);
+      } else {
+        if (limit < 0) {
+          start = 0;
+          limit = list.getSize();
+        }
+        return list.load(start, limit);
+      }
+    } catch (Exception ex) {
+      throw new RuntimeException(ex);
+    }
+  }
 }

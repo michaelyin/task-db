@@ -35,14 +35,10 @@ import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvide
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.profile.ProfileFilter;
 import org.exoplatform.social.core.service.LinkProvider;
-import org.exoplatform.task.dao.DAOHandler;
-import org.exoplatform.task.domain.Project;
-import org.exoplatform.task.exception.EntityNotFoundException;
-import org.exoplatform.task.exception.NotAllowedOperationOnEntityException;
-import org.exoplatform.task.model.User;
 
 import net.wyun.qys.dao.QysDAOHandler;
 import net.wyun.qys.domain.UserSetting;
+import net.wyun.qys.model.User;
 import net.wyun.qys.service.UserService;
 
 import java.util.ArrayList;

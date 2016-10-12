@@ -19,16 +19,8 @@
 
 package net.wyun.qys.service;
 
-import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.services.security.Identity;
-import org.exoplatform.task.exception.EntityNotFoundException;
-import org.exoplatform.task.exception.NotAllowedOperationOnEntityException;
-import org.exoplatform.task.model.User;
 
 import net.wyun.qys.domain.Policy;
-import net.wyun.qys.domain.UserSetting;
-
-import java.util.TimeZone;
 
 /**
  */

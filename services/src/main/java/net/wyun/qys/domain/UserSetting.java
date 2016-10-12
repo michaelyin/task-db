@@ -20,7 +20,6 @@
 package net.wyun.qys.domain;
 
 import org.exoplatform.commons.api.persistence.ExoEntity;
-import org.exoplatform.task.domain.Project;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -29,9 +28,9 @@ import java.util.Set;
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */
-@Entity(name = "TaskUserSetting")
+@Entity(name = "QysUserSetting")
 @ExoEntity
-@Table(name = "TASK_USER_SETTINGS")
+@Table(name = "QYS_USER_SETTINGS")
 public class UserSetting {
   @Id
   @Column(name = "USERNAME")
@@ -43,6 +42,7 @@ public class UserSetting {
   @Column(name = "SHOW_HIDDEN_LABEL")
   private boolean showHiddenLabel = false;
 
+  /*
   @ManyToMany(cascade = CascadeType.REMOVE)
   @JoinTable(
           name = "TASK_HIDDEN_PROJECTS",
@@ -50,6 +50,7 @@ public class UserSetting {
           inverseJoinColumns = {@JoinColumn(name = "PROJECT_ID", referencedColumnName = "PROJECT_ID")}
   )
   private Set<Project> hiddenProjects = new HashSet<Project>();
+  */
 
   public UserSetting() {
 
@@ -78,7 +79,7 @@ public class UserSetting {
   public void setShowHiddenLabel(boolean showHiddenLabel) {
     this.showHiddenLabel = showHiddenLabel;
   }
-
+/*
   public Set<Project> getHiddenProjects() {
     return hiddenProjects;
   }
@@ -99,11 +100,13 @@ public class UserSetting {
     return false;
   }
 
+*/
   @Override
   public UserSetting clone() {
     UserSetting setting = new UserSetting(getUsername());
     setting.setShowHiddenProject(isShowHiddenProject());
 
+    /*
     //TODO: clone hiddenProjects here is not good for performance
     Set<Project> hiddenProjects = new HashSet<Project>();
     if (getHiddenProjects() != null) {
@@ -112,6 +115,7 @@ public class UserSetting {
       }
     }
     setting.setHiddenProjects(hiddenProjects);
+    */
     return setting;
   }
 }
