@@ -25,6 +25,7 @@ package net.wyun.qys.dao;
 public interface QysDAOHandler {
   public PolicyHandler getPolicyHandler();
   public UserSettingHandler getUserSettingHandler();
+  public StandardHandler getStandardHandler();
 
   
 }

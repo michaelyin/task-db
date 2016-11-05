@@ -20,6 +20,12 @@
     <key>net.wyun.qys.service.PolicyService</key>
     <type>net.wyun.qys.service.impl.PolicyServiceImpl</type>
   </component>
+  
+  <component>
+    <key>net.wyun.qys.service.StandardService</key>
+    <type>net.wyun.qys.service.impl.StandardServiceImpl</type>
+  </component>
+  
 
   <external-component-plugins>
     <target-component>org.exoplatform.commons.api.persistence.DataInitializer</target-component>

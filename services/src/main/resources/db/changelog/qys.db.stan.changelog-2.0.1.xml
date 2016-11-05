@@ -24,6 +24,9 @@
       <column name="standard_type" type="INTEGER">
         <constraints nullable="false"/>
       </column>
+      <column name="standard_text_uuid" type="NVARCHAR(1000)">
+        <constraints nullable="true"/>
+      </column>
       <column name="create_date" type="TIMESTAMP">
         <constraints nullable="true"/>
       </column>

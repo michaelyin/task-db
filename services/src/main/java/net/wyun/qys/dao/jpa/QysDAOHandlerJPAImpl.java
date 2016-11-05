@@ -22,6 +22,7 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 import net.wyun.qys.dao.QysDAOHandler;
+import net.wyun.qys.dao.StandardHandler;
 import net.wyun.qys.domain.UserSetting;
 import net.wyun.qys.service.impl.AbstractQysDAOHandler;
 
@@ -41,7 +42,7 @@ public class QysDAOHandlerJPAImpl extends AbstractQysDAOHandler implements QysDA
     
     pHandler = new PolicyDAOImpl();
     uHandler = new UserSettingDAO();
-    
+    stanHandler = new StandardDAOImpl();
     LOG.info("QysDAOHandlerJPAImpl is created");
   }
   
@@ -53,5 +54,7 @@ public class QysDAOHandlerJPAImpl extends AbstractQysDAOHandler implements QysDA
 
 	    return e;
 	  }
+
+
 }
 

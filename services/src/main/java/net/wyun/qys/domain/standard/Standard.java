@@ -31,7 +31,7 @@ public class Standard {
 	  @Column(name = "standard_num")
 	  private String standardNum;
 	  
-	  @Column(name = "STANDARD_TYPE", nullable = false)
+	  @Column(name = "standard_type", nullable = false)
 	  private StandardType standardType;
 	  
 	  
@@ -39,8 +39,18 @@ public class Standard {
 	  @Column(name = "create_date")
 	  private Date createDate;
 	  
-	  @Column(name = "text")
-	  private String text;
+	  @Column(name = "standard_text_uuid")
+	  private String uuid;
+
+	
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
 	public String getStandardName() {
 		return standardName;
