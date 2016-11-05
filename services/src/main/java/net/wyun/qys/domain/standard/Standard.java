@@ -15,18 +15,20 @@ import org.exoplatform.commons.api.persistence.ExoEntity;
 
 @Entity(name = "Standard")
 @ExoEntity
-@Table(name = "QYS_STANDARD")
+@Table(name = "qys_standard")
 public class Standard {
 	
-	  @Id
+	  public Standard() {}
+
+	@Id
 	  @GeneratedValue(strategy=GenerationType.AUTO) //, generator="SEQ_QYS_POLICY_ID"), use mysql default sequence
-	  @Column(name = "STANDARD_ID")
+	  @Column(name = "standard_id")
 	  private long        id;
 	  
-	  @Column(name = "STANDARD_NAME")
+	  @Column(name = "standard_name")
 	  private String standardName;
 	  
-	  @Column(name = "STANDARD_NUM")
+	  @Column(name = "standard_num")
 	  private String standardNum;
 	  
 	  @Column(name = "STANDARD_TYPE", nullable = false)
@@ -34,10 +36,43 @@ public class Standard {
 	  
 	  
 	  @Temporal(TemporalType.TIMESTAMP)
-	  @Column(name = "CREATE_DATE")
+	  @Column(name = "create_date")
 	  private Date createDate;
 	  
-	  
+	  @Column(name = "text")
+	  private String text;
+
+	public String getStandardName() {
+		return standardName;
+	}
+
+	public void setStandardName(String standardName) {
+		this.standardName = standardName;
+	}
+
+	public String getStandardNum() {
+		return standardNum;
+	}
+
+	public void setStandardNum(String standardNum) {
+		this.standardNum = standardNum;
+	}
+
+	public StandardType getStandardType() {
+		return standardType;
+	}
+
+	public void setStandardType(StandardType standardType) {
+		this.standardType = standardType;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
 	public long getId() {
 		return id;

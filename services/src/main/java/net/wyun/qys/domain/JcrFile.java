@@ -17,7 +17,7 @@ import javax.persistence.InheritanceType;
 public abstract class JcrFile {
 	
 	  @Id
-	  @GeneratedValue(strategy=GenerationType.AUTO) //, generator="SEQ_QYS_POLICY_ID"), use mysql default sequence
+	  @GeneratedValue(strategy=GenerationType.TABLE) //, generator="SEQ_QYS_POLICY_ID"), use mysql default sequence
 	  @Column(name = "ID")
 	  private long  id;
 	
