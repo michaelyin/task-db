@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+  <!-- Managing both DB that use sequences and db that use auto increment -->
+  <property name="autoIncrement" value="true" dbms="mysql,mssql,h2,sybase,db2,hsqldb"/>
+  <property name="autoIncrement" value="false" dbms="oracle,postgresql"/>
+
+  <!-- Definition of QYS_STANDARD table -->
+  <changeSet author="qys" id="2.0.1-1">
+    <createTable tableName="qys_standard">
+      <column name="standard_id" type="BIGINT" autoIncrement="${autoIncrement}" startWith="1">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="PK_QYS_STANDARD" />
+      </column>
+      <column name="standard_name" type="NVARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="standard_num" type="NVARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="standard_type" type="INTEGER">
+        <constraints nullable="false"/>
+      </column>
+      <column name="create_date" type="TIMESTAMP">
+        <constraints nullable="true"/>
+      </column>
+    </createTable>
+    <modifySql dbms="mysql">
+      <append value=" ENGINE=INNODB CHARSET=UTF8 COLLATE utf8_general_ci"/>
+    </modifySql>
+  </changeSet>
+  
+  <!-- Definition of QYS_STAN_JCRFILE table -->
+  <changeSet author="qys" id="2.0.1-2">
+    <createTable tableName="qys_stan_jcrfile">
+      <column name="id" type="BIGINT" autoIncrement="${autoIncrement}" startWith="1">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="PK_QYS_STANDARD" />
+      </column>
+      <column name="uuid" type="NVARCHAR(36)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="url" type="NVARCHAR(60)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="upload_date" type="TIMESTAMP">
+        <constraints nullable="true"/>
+      </column>
+      <column name="stan_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="FK_JCRFILE_STAN_01" references="qys_standard(standard_id)"/>
+      </column>
+    </createTable>
+    <modifySql dbms="mysql">
+      <append value=" ENGINE=INNODB CHARSET=UTF8 COLLATE utf8_general_ci"/>
+    </modifySql>
+  </changeSet>
+  
+  <!-- Definition of STAN_TAGS table -->
+  <changeSet author="qys" id="2.0.1-3">
+    <createTable tableName="stan_tag">
+      <column name="id" type="BIGINT">
+        <constraints foreignKeyName="FK_STAN_TAGS_STAN_01" references="qys_standard(standard_id)" nullable="false"/>
+      </column>
+      <column name="tag" type="NVARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <modifySql dbms="mysql">
+      <append value=" ENGINE=INNODB CHARSET=UTF8 COLLATE utf8_general_ci"/>
+    </modifySql>
+  </changeSet>
+
+</databaseChangeLog>

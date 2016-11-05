@@ -9,8 +9,8 @@
   <property name="autoIncrement" value="true" dbms="mysql,mssql,h2,sybase,db2,hsqldb"/>
   <property name="autoIncrement" value="false" dbms="oracle,postgresql"/>
 
-  <!-- Definition of TASK_PROJECTS table -->
-  <changeSet author="qys" id="1.1.1-1">
+  <!-- Definition of QYS_POLICY table -->
+  <changeSet author="qys" id="2.0.0-1">
     <createTable tableName="QYS_POLICY">
       <column name="POLICY_ID" type="BIGINT" autoIncrement="${autoIncrement}" startWith="1">
         <constraints nullable="false" primaryKey="true" primaryKeyName="PK_QYS_POLICY" />
@@ -19,6 +19,23 @@
         <constraints nullable="false"/>
       </column>
       <column name="START_DATE" type="TIMESTAMP">
+        <constraints nullable="true"/>
+      </column>
+    </createTable>
+    <modifySql dbms="mysql">
+      <append value=" ENGINE=INNODB CHARSET=UTF8 COLLATE utf8_general_ci"/>
+    </modifySql>
+  </changeSet>
+  <!-- Definition of QYS_USER_SETTINGS table -->
+  <changeSet author="qys" id="2.0.0-2">
+    <createTable tableName="QYS_USER_SETTINGS">
+      <column name="USERNAME" type="NVARCHAR(50)">
+        <constraints primaryKey="true" primaryKeyName="PK_QYS_USER_SETTINGS" nullable="false"/>
+      </column>
+      <column name="SHOW_HIDDEN_PROJECT" type="BIT" defaultValue="0">
+        <constraints nullable="true"/>
+      </column>
+      <column name="SHOW_HIDDEN_LABEL" type="BIT" defaultValue="0">
         <constraints nullable="true"/>
       </column>
     </createTable>
