@@ -10,37 +10,41 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.InheritanceType;
 
 @Entity() 
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) 
 public abstract class JcrFile {
 	
-	  @Id
-	  @GeneratedValue(strategy=GenerationType.TABLE) //, generator="SEQ_QYS_POLICY_ID"), use mysql default sequence
-	  @Column(name = "ID")
-	  private long  id;
+	@GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @Column(name= "id", columnDefinition = "VARCHAR(36)")
+    @Id
+	private String id;
 	
 	  
-	  @Column(name = "UUID", length = 36, columnDefinition="VARCHAR(36)")
+	  @Column(name = "uuid", length = 36, columnDefinition="VARCHAR(36)")
 	  String uuid;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPLOAD_DATE")
+	@Column(name = "upload_t")
 	private Date uploadDate;
 	
-	@Column(name = "URL")
+	@Column(name = "url")
 	private String url;
 	
-	@Column(name = "FILE_NAME")
+	@Column(name = "file_name")
 	private String fileName;
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
