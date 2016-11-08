@@ -43,6 +43,7 @@ public class QysDAOHandlerJPAImpl extends AbstractQysDAOHandler implements QysDA
     pHandler = new PolicyDAOImpl();
     uHandler = new UserSettingDAO();
     stanHandler = new StandardDAOImpl();
+    stanJcrFileHandler = new StanJcrFileDAOImpl();
     LOG.info("QysDAOHandlerJPAImpl is created");
   }
   

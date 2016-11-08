@@ -26,6 +26,7 @@ public interface QysDAOHandler {
   public PolicyHandler getPolicyHandler();
   public UserSettingHandler getUserSettingHandler();
   public StandardHandler getStandardHandler();
+  public StanJcrFileHandler getStanJcrFileHandler();
 
   
 }
