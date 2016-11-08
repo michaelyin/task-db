@@ -16,8 +16,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import org.exoplatform.commons.api.persistence.ExoEntity;
+import org.hibernate.annotations.GenericGenerator;
 
 import net.wyun.qys.domain.JcrFile;
 
@@ -27,13 +29,15 @@ import net.wyun.qys.domain.JcrFile;
  */
 @Entity(name = "StanJcrFile")
 @ExoEntity
-@Table(name = "qys_stan_jcrfile")
+@Table(name = "qys_stan_jcrfile", uniqueConstraints=
+  @UniqueConstraint(columnNames={"stan_id", "uuid"}))
 public class StanJcrFile /*extends JcrFile*/ {
 
-	 @Id
-	  @GeneratedValue(strategy=GenerationType.TABLE) //, generator="SEQ_QYS_POLICY_ID"), use mysql default sequence
-	  @Column(name = "id")
-	  private long  id;
+	 @GeneratedValue(generator = "uuid")
+	    @GenericGenerator(name = "uuid", strategy = "uuid")
+	    @Column(name= "id", columnDefinition = "VARCHAR(36)")
+	    @Id
+	  private String  id;
 	
 	  
 	  @Column(name = "uuid", length = 36, columnDefinition="VARCHAR(36)")
@@ -63,11 +67,11 @@ public class StanJcrFile /*extends JcrFile*/ {
 		this.standard = standard;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.exoplatform.commons.api.persistence.ExoEntity;
 
@@ -16,7 +17,8 @@ import net.wyun.qys.domain.Tag;
 
 @Entity(name = "StanTag")
 @ExoEntity
-@Table(name = "qys_stan_tag")
+@Table(name = "qys_stan_tag", uniqueConstraints=
+       @UniqueConstraint(columnNames={"stan_id", "tag"}))
 public class StanTag extends Tag{
 	
 	@ManyToOne(fetch=FetchType.LAZY)
