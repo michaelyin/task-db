@@ -18,6 +18,7 @@ package net.wyun.qys.service.impl;
 
 import net.wyun.qys.dao.PolicyHandler;
 import net.wyun.qys.dao.QysDAOHandler;
+import net.wyun.qys.dao.StanJcrFileHandler;
 import net.wyun.qys.dao.StandardHandler;
 import net.wyun.qys.dao.UserSettingHandler;
 
@@ -28,9 +29,15 @@ abstract public class AbstractQysDAOHandler implements QysDAOHandler {
   protected PolicyHandler pHandler;
   protected UserSettingHandler uHandler;
   protected StandardHandler stanHandler;
+  protected StanJcrFileHandler stanJcrFileHandler;
 
   
-  public PolicyHandler getPolicyHandler() {
+  public StanJcrFileHandler getStanJcrFileHandler() {
+	return stanJcrFileHandler;
+}
+
+
+public PolicyHandler getPolicyHandler() {
     return pHandler;
   }
 
