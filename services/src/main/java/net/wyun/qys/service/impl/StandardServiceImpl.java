@@ -24,4 +24,11 @@ public class StandardServiceImpl implements StandardService {
 		return daoHandler.getStandardHandler().save(s);
 	}
 
+
+
+	@Override
+	public Standard update(Standard s) {
+		return daoHandler.getStandardHandler().update(s);
+	}
+
 }

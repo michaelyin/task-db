@@ -5,5 +5,6 @@ import net.wyun.qys.domain.standard.Standard;
 public interface StandardService {
 	
 	Standard save(Standard s);
+	Standard update(Standard s);
 
 }
