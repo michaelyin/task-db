@@ -17,11 +17,12 @@ import org.hibernate.annotations.GenericGenerator;
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) 
 public abstract class Tag {
 	
+
 	@GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
     @Column(name= "id", columnDefinition = "VARCHAR(36)")
     @Id
-	private String id;
+	protected String id;
  
     @Column(name = "tag")
     protected String tag;
@@ -48,6 +49,11 @@ public abstract class Tag {
 
 	public void setTag(String tag) {
 		this.tag = tag;
+	}
+	
+	@Override
+	public String toString() {
+		return "{'id':'" + id + "', 'tag:'" + tag + "'}";
 	}
  
 }

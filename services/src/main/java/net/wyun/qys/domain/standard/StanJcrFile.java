@@ -3,6 +3,7 @@
  */
 package net.wyun.qys.domain.standard;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,6 +19,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.exoplatform.commons.api.persistence.ExoEntity;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -31,9 +35,15 @@ import net.wyun.qys.domain.JcrFile;
 @ExoEntity
 @Table(name = "qys_stan_jcrfile", uniqueConstraints=
   @UniqueConstraint(columnNames={"stan_id", "uuid"}))
-public class StanJcrFile /*extends JcrFile*/ {
+public class StanJcrFile /*extends JcrFile*/ implements Serializable{
 
-	 @GeneratedValue(generator = "uuid")
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5126381948415234106L;
+
+
+	@GeneratedValue(generator = "uuid")
 	    @GenericGenerator(name = "uuid", strategy = "uuid")
 	    @Column(name= "id", columnDefinition = "VARCHAR(36)")
 	    @Id
@@ -54,7 +64,7 @@ public class StanJcrFile /*extends JcrFile*/ {
 	@Column(name = "file_name")
 	private String fileName;
 	
-	
+	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "stan_id")
 	private Standard standard;
@@ -105,5 +115,10 @@ public class StanJcrFile /*extends JcrFile*/ {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	@Override
+	public String toString() {
+		return "{'fileName':'" + fileName + "','uuid':'" + uuid + "'}";
 	}
 }

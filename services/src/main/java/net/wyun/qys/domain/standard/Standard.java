@@ -1,5 +1,6 @@
 package net.wyun.qys.domain.standard;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,15 +19,22 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
 import org.exoplatform.commons.api.persistence.ExoEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity(name = "Standard")
 @ExoEntity
 @Table(name = "qys_standard")
-public class Standard {
+public class Standard implements Serializable{
 	
-	  public Standard() {}
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1092818647002847041L;
+	
+
+	public Standard() {}
 
 	  @GeneratedValue(generator = "uuid")
 	    @GenericGenerator(name = "uuid", strategy = "uuid")
@@ -40,6 +48,10 @@ public class Standard {
 	  
 	  private StandardType type;
 	  
+	  private String creator;
+	  
+	  private String department;
+	  
 	  
 	  @Temporal(TemporalType.TIMESTAMP)
 	  @Column(name = "create_t")
@@ -48,10 +60,12 @@ public class Standard {
 	  @Column(name = "txt_uuid")
 	  private String uuid;
 
+	  @JsonBackReference
 	  @OneToMany(mappedBy="standard", cascade={CascadeType.ALL}, targetEntity=StanTag.class, fetch=FetchType.EAGER)
 	  //@JoinColumn(name="stan_id", referencedColumnName="id")
 	  private Set<StanTag> stanTags = new HashSet<StanTag>();
 	  
+	  @JsonBackReference
 	  @OneToMany(mappedBy="standard", cascade={CascadeType.ALL}, targetEntity=StanJcrFile.class, fetch=FetchType.EAGER)
 	  //@JoinColumn(name="stan_id", referencedColumnName="id")
 	  private Set<StanJcrFile> stanJcrFiles = new HashSet<StanJcrFile>();
@@ -105,6 +119,22 @@ public class Standard {
 	}
 	
 
+	public String getCreator() {
+		return creator;
+	}
+
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
 	public Set<StanTag> getStanTags() {
 		return stanTags;
 	}
@@ -123,6 +153,14 @@ public class Standard {
 	public void addStanJcrFile(StanJcrFile f){
 		f.setStandard(this);
 		stanJcrFiles.add(f);
+	}
+
+	public Set<StanJcrFile> getStanJcrFiles() {
+		return stanJcrFiles;
+	}
+
+	public void setStanJcrFiles(Set<StanJcrFile> stanJcrFiles) {
+		this.stanJcrFiles = stanJcrFiles;
 	}
 
 }

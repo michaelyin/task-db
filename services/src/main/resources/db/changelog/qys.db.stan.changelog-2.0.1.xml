@@ -24,6 +24,12 @@
       <column name="type" type="INTEGER">
         <constraints nullable="false"/>
       </column>
+      <column name="creator" type="NVARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="department" type="NVARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
       <column name="txt_uuid" type="NVARCHAR(36)">
         <constraints nullable="true"/>
       </column>
