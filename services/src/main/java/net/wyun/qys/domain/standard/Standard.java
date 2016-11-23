@@ -26,7 +26,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity(name = "Standard")
 @ExoEntity
 @Table(name = "qys_standard")
-public class Standard implements Serializable{
+public class Standard {
 	
 	  /**
 	 * 
@@ -36,10 +36,10 @@ public class Standard implements Serializable{
 
 	public Standard() {}
 
-	  @GeneratedValue(generator = "uuid")
-	    @GenericGenerator(name = "uuid", strategy = "uuid")
-	    @Column(name= "id", columnDefinition = "VARCHAR(36)")
-	    @Id
+	  @Id
+	  @GeneratedValue(generator = "uuid-gen")
+	  @GenericGenerator(name = "uuid-gen",  strategy = "uuid2")
+      @Column(name = "id", updatable = false, nullable = false)
 	  private String    id;
 	  
 	  private String name;
@@ -161,6 +161,13 @@ public class Standard implements Serializable{
 
 	public void setStanJcrFiles(Set<StanJcrFile> stanJcrFiles) {
 		this.stanJcrFiles = stanJcrFiles;
+	}
+
+	@Override
+	public String toString() {
+		return "Standard [id=" + id + ", name=" + name + ", num=" + num + ", type=" + type + ", creator=" + creator
+				+ ", department=" + department + ", createDate=" + createDate + ", uuid=" + uuid + ", stanTags="
+				+ stanTags + ", stanJcrFiles=" + stanJcrFiles + "]";
 	}
 
 }
