@@ -7,4 +7,5 @@ public interface StandardService {
 	Standard save(Standard s);
 	Standard update(Standard s);
 
+	Standard findById(String uuid);
 }
