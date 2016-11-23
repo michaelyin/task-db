@@ -31,4 +31,11 @@ public class StandardServiceImpl implements StandardService {
 		return daoHandler.getStandardHandler().update(s);
 	}
 
+
+
+	@Override
+	public Standard findById(String uuid) {
+		return daoHandler.getStandardHandler().findById(uuid);
+	}
+
 }
