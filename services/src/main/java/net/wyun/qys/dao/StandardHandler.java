@@ -6,4 +6,5 @@ import net.wyun.qys.domain.standard.Standard;
 
 public interface StandardHandler extends GenericDAO<Standard, Long> {
 	  Standard save(Standard p);
+	  Standard findById(String uuid);
 }
