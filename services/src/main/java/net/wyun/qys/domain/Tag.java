@@ -53,7 +53,7 @@ public abstract class Tag {
 	
 	@Override
 	public String toString() {
-		return "{'id':'" + id + "', 'tag:'" + tag + "'}";
+		return "{'id':'" + id + "', 'tag':'" + tag + "'}";
 	}
  
 }
