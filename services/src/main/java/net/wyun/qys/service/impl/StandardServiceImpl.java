@@ -1,9 +1,13 @@
 package net.wyun.qys.service.impl;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.inject.Inject;
 
 import net.wyun.qys.dao.QysDAOHandler;
 import net.wyun.qys.domain.standard.Standard;
+import net.wyun.qys.domain.standard.StandardType;
 import net.wyun.qys.service.StandardService;
 
 public class StandardServiceImpl implements StandardService {
@@ -36,6 +40,13 @@ public class StandardServiceImpl implements StandardService {
 	@Override
 	public Standard findById(String uuid) {
 		return daoHandler.getStandardHandler().findById(uuid);
+	}
+
+
+
+	@Override
+	public List<Standard> findByTypes(Set<StandardType> types) {
+		return daoHandler.getStandardHandler().findByTypes(types);
 	}
 
 }

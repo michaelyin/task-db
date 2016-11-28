@@ -79,7 +79,7 @@ public class TestStandardDAO extends AbstractTest {
   @Test
   public void testTaskCreation() {
 	  
-    Standard task = this.createStandard();
+    Standard task = this.createStandard("国标2015", StandardType.仪表);
     sDAO.save(task);
 
     List<Standard> list = sDAO.findAll();
@@ -105,9 +105,34 @@ public class TestStandardDAO extends AbstractTest {
   }
 
   @Test
-  public void testFindTaskByQuery() throws Exception {
-   // Task task = newTaskInstance("Test find task by query", "description of find task by query", "root");
-   // tDAO.create(task);
+  public void testFindStanByType() throws Exception {
+	    Standard task = this.createStandard("国标2015", StandardType.仪表);
+	    sDAO.save(task);
+	    
+	    task = this.createStandard("国标2014", StandardType.制动);
+	    sDAO.save(task);
+	    
+	    task = this.createStandard("国标2014", StandardType.客车);
+	    sDAO.save(task);
+
+	    List<Standard> list = sDAO.findAll();
+	    
+	    for (Standard t : list) {
+	        System.out.println(t.toString());
+	      }    
+	    
+	    Assert.assertEquals(3, list.size());
+	    
+	    Set<StandardType> ss = new HashSet<StandardType>();
+	    ss.add(StandardType.仪表);
+	    ss.add(StandardType.制动);
+	    
+	    list = sDAO.findByTypes(ss);
+	    for(Standard s:list){
+	    	System.out.println("type: " + s.getType());
+	    }
+	    
+	    Assert.assertEquals(2, list.size());
 
   }  
 
@@ -136,12 +161,14 @@ public class TestStandardDAO extends AbstractTest {
    
   }
   
-  private Standard createStandard(){
+  private Standard createStandard(String name, StandardType type){
 	  Standard s = new Standard();
-	  s.setName("国家标准2016");
+	  //s.setName("国家标准2016");
+	  s.setName(name);
 	  s.setCreateDate(new Date());
 	  s.setNum("001-2960-2016");
-	  s.setType(StandardType.专用车);
+	  //s.setType(StandardType.专用车);
+	  s.setType(type);
 	  s.setUuid("4eb65550-a36a-11e6-80f5-76304dec7eb7");
 	  s.setCreator("michaelyin");
 	  s.setDepartment("math");
