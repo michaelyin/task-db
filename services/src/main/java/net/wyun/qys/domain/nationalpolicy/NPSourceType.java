@@ -7,7 +7,7 @@ import java.util.EnumSet;
  * @author michael
  *
  */
-public enum NSourceType {
+public enum NPSourceType {
 	国务院(0), 
 	发改委(1),
 	工信部(2),
@@ -25,12 +25,12 @@ public enum NSourceType {
 		return value;
 	}
 
-	NSourceType(int value){
+	NPSourceType(int value){
 		this.value = value;
 	}
 	
-	public static NSourceType typeForValue(int value) {
-		for (NSourceType type : EnumSet.allOf(NSourceType.class)) {
+	public static NPSourceType typeForValue(int value) {
+		for (NPSourceType type : EnumSet.allOf(NPSourceType.class)) {
 			if (type.getValue() == value) {
 				return type;
 			}

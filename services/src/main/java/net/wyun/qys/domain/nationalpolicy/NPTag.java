@@ -20,10 +20,10 @@ import org.exoplatform.commons.api.persistence.ExoEntity;
 
 import net.wyun.qys.domain.Tag;
 
-@Entity(name = "StanTag")
+@Entity(name = "NPTag")
 @ExoEntity
-@Table(name = "qys_stan_tag", uniqueConstraints=
-       @UniqueConstraint(columnNames={"stan_id", "tag"}))
+@Table(name = "qys_np_tag", uniqueConstraints=
+       @UniqueConstraint(columnNames={"np_id", "tag"}))
 public class NPTag extends Tag implements Serializable{
 	
 
@@ -34,7 +34,7 @@ public class NPTag extends Tag implements Serializable{
 	
 	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "stan_id")
+	@JoinColumn(name = "np_id")
 	private NationalPolicy policy;
 
 	public NationalPolicy getPolicy() {

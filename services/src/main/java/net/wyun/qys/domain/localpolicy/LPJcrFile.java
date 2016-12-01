@@ -32,7 +32,7 @@ import net.wyun.qys.domain.JcrFileType;
  * @author michael
  *
  */
-@Entity(name = "NPJcrFile")
+@Entity(name = "LPJcrFile")
 @ExoEntity
 @Table(name = "qys_lp_jcrfile", uniqueConstraints=
   @UniqueConstraint(columnNames={"lp_id", "uuid"}))
@@ -59,7 +59,6 @@ public class LPJcrFile implements Serializable{
 	@Column(name = "upload_t")
 	private Date uploadDate;
 	
-	@Column(name = "url")
 	private String url;
 	
 	@Column(name = "file_name")
