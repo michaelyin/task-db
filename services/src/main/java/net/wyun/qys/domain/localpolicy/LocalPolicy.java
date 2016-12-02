@@ -15,11 +15,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.exoplatform.commons.api.persistence.ExoEntity;
 
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NPJcrFile;
+import net.wyun.qys.domain.nationalpolicy.NPTag;
 
 
 @Entity(name = "lpolicy")
@@ -71,4 +74,15 @@ public class LocalPolicy extends Policy{
 		this.policyTags = policyTags;
 	}
 
+	@Transient
+	public void addLPTag(LPTag tag){
+		tag.setPolicy(this);
+		policyTags.add(tag);
+	}
+	
+	@Transient
+	public void addLPJcrFile(LPJcrFile f){
+		f.setPolicy(this);
+		jcrFiles.add(f);
+	}
 }

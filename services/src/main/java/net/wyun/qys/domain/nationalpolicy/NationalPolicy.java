@@ -8,11 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.exoplatform.commons.api.persistence.ExoEntity;
 
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.standard.StanJcrFile;
+import net.wyun.qys.domain.standard.StanTag;
 
 @Entity(name = "npolicy")
 @ExoEntity
@@ -61,6 +64,18 @@ public class NationalPolicy extends Policy{
 
 	public void setPolicyTags(Set<NPTag> policyTags) {
 		this.policyTags = policyTags;
+	}
+	
+	@Transient
+	public void addNPTag(NPTag tag){
+		tag.setPolicy(this);
+		policyTags.add(tag);
+	}
+	
+	@Transient
+	public void addNPJcrFile(NPJcrFile f){
+		f.setPolicy(this);
+		jcrFiles.add(f);
 	}
 
 
