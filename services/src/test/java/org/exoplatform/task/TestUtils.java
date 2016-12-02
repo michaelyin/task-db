@@ -76,9 +76,11 @@ public class TestUtils {
     Database database = DatabaseFactory.getInstance()
         .findCorrectDatabaseImplementation(new JdbcConnection(conn));
 
-    liquibase = new Liquibase("db/changelog/qys.db.policy.changelog-2.0.0.xml", new ClassLoaderResourceAccessor(), database);
+    liquibase = new Liquibase("db/changelog/qys.db.npolicy.changelog-1.0.0.xml", new ClassLoaderResourceAccessor(), database);
     liquibase.update((String)null);
-    liquibase = new Liquibase("db/changelog/qys.db.stan.changelog-2.0.1.xml", new ClassLoaderResourceAccessor(), database);
+    liquibase = new Liquibase("db/changelog/qys.db.lpolicy.changelog-1.0.1.xml", new ClassLoaderResourceAccessor(), database);
+    liquibase.update((String)null);
+    liquibase = new Liquibase("db/changelog/qys.db.stan.changelog-1.0.2.xml", new ClassLoaderResourceAccessor(), database);
     liquibase.update((String)null);
   }
 
