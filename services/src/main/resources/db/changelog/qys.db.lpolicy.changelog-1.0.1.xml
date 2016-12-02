@@ -85,7 +85,7 @@
         <constraints nullable="false" primaryKey="true" primaryKeyName="PK_QYS_LP_TAG" />
       </column>
       <column name="lp_id" type="NVARCHAR(36)">
-        <constraints foreignKeyName="FK_NP_TAGS_LP_02" references="qys_local_policy" nullable="false"/>
+        <constraints foreignKeyName="FK_LP_TAGS_LP_02" references="qys_local_policy(id)" nullable="false"/>
       </column>
       <column name="tag" type="NVARCHAR(50)">
         <constraints nullable="false"/>

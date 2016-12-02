@@ -78,14 +78,14 @@
     </modifySql>
   </changeSet>
   
-  <!-- Definition of STAN_TAGS table -->
+  <!-- Definition of qys_np_TAGS table -->
   <changeSet author="qys" id="1.0.0-3">
     <createTable tableName="qys_np_tag">
       <column name="id" type="NVARCHAR(36)" >
         <constraints nullable="false" primaryKey="true" primaryKeyName="PK_QYS_NP_TAG" />
       </column>
       <column name="np_id" type="NVARCHAR(36)">
-        <constraints foreignKeyName="FK_NP_TAGS_NP_02" references="qys_national_policy" nullable="false"/>
+        <constraints foreignKeyName="FK_NP_TAGS_NP_02" references="qys_national_policy(id)" nullable="false"/>
       </column>
       <column name="tag" type="NVARCHAR(50)">
         <constraints nullable="false"/>
@@ -96,4 +96,21 @@
     </modifySql>
   </changeSet>
 
+  <!-- Definition of QYS_USER_SETTINGS table -->
+  <changeSet author="qys" id="1.0.0-4">
+    <createTable tableName="QYS_USER_SETTINGS">
+      <column name="USERNAME" type="NVARCHAR(50)">
+        <constraints primaryKey="true" primaryKeyName="PK_QYS_USER_SETTINGS" nullable="false"/>
+      </column>
+      <column name="SHOW_HIDDEN_PROJECT" type="BIT" defaultValue="0">
+        <constraints nullable="true"/>
+      </column>
+      <column name="SHOW_HIDDEN_LABEL" type="BIT" defaultValue="0">
+        <constraints nullable="true"/>
+      </column>
+    </createTable>
+    <modifySql dbms="mysql">
+      <append value=" ENGINE=INNODB CHARSET=UTF8 COLLATE utf8_general_ci"/>
+    </modifySql>
+</changeSet>
 </databaseChangeLog>
