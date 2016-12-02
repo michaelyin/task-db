@@ -30,7 +30,6 @@ public class StandardDAOImpl extends CommonJPADAO<Standard, Long> implements Sta
 
 	@Override
 	public Standard findById(String uuid) {
-		// TODO Auto-generated method stub
 		return super.getEntityManager().find(Standard.class, uuid);
 	}
 
