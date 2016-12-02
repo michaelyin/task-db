@@ -32,16 +32,17 @@ import org.exoplatform.social.core.service.LinkProvider;
 
 import net.wyun.qys.dao.QysDAOHandler;
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 import net.wyun.qys.model.User;
-import net.wyun.qys.service.PolicyService;
+import net.wyun.qys.service.NationalPolicyService;
 
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */
 @Singleton
-public class PolicyServiceImpl implements PolicyService {
+public class NPolicyServiceImpl implements NationalPolicyService {
 
-	private static final Log LOG = ExoLogger.getExoLogger(PolicyServiceImpl.class);
+	private static final Log LOG = ExoLogger.getExoLogger(NPolicyServiceImpl.class);
 
 	@Inject
 	private OrganizationService orgService;
@@ -54,7 +55,7 @@ public class PolicyServiceImpl implements PolicyService {
 
 	private CalendarService calService;
 
-	public PolicyServiceImpl(OrganizationService orgService, CalendarService calService, IdentityManager idMgr,
+	public NPolicyServiceImpl(OrganizationService orgService, CalendarService calService, IdentityManager idMgr,
 			QysDAOHandler handler) {
 		this.orgService = orgService;
 		this.identityManager = idMgr;
@@ -64,8 +65,8 @@ public class PolicyServiceImpl implements PolicyService {
 
 	@Override
 	@ExoTransactional
-	public Policy save(Policy p) {
-		LOG.info("save policy: " + p.getPolicyName());
-		return daoHandler.getPolicyHandler().save(p);
+	public NationalPolicy save(NationalPolicy p) {
+		LOG.info("save policy: " + p.getName());
+		return daoHandler.getNPolicyHandler().save(p);
 	}
 }

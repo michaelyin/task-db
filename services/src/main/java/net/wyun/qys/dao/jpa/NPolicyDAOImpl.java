@@ -34,34 +34,31 @@ import java.util.logging.Logger;
 import org.exoplatform.commons.utils.ListAccess;
 
 import net.wyun.qys.dao.OrderBy;
-import net.wyun.qys.dao.PolicyHandler;
+import net.wyun.qys.dao.NPolicyHandler;
 import net.wyun.qys.dao.condition.Conditions;
 import net.wyun.qys.dao.condition.SingleCondition;
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 
 /**
- * Created by The eXo Platform SAS
- * Author : Thibault Clement
- * tclement@exoplatform.com
- * 4/10/15
+ * Created by The eXo Platform SAS Author : Thibault Clement
+ * tclement@exoplatform.com 4/10/15
  */
-public class PolicyDAOImpl extends CommonJPADAO<Policy, Long> implements PolicyHandler {
+public class NPolicyDAOImpl extends CommonJPADAO<NationalPolicy, Long> implements NPolicyHandler {
 
-  private static final Logger LOG = Logger.getLogger("PolicyDAOImpl");
+	private static final Logger LOG = Logger.getLogger("PolicyDAOImpl");
 
-  public PolicyDAOImpl() {
-  }
+	public NPolicyDAOImpl() {
+	}
 
-  
-  public Policy update(Policy entity) {
-    return cloneEntity(super.update(entity));
-  }
+	public NationalPolicy update(NationalPolicy entity) {
+		return cloneEntity(super.update(entity));
+	}
 
-@Override
-public Policy save(Policy p) {
-	
-	return super.create(p);
-}
+	@Override
+	public NationalPolicy save(NationalPolicy p) {
 
-  
+		return super.create(p);
+	}
+
 }

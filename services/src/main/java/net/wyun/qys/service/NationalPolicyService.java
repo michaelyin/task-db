@@ -21,11 +21,12 @@ package net.wyun.qys.service;
 
 
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 
 /**
  */
-public interface PolicyService {
+public interface NationalPolicyService {
 
-  Policy save(Policy p);
+	NationalPolicy save(NationalPolicy p);
 
 }

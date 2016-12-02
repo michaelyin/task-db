@@ -22,9 +22,10 @@ package net.wyun.qys.dao;
 import org.exoplatform.commons.api.persistence.GenericDAO;
 
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 
 /**
  */
-public interface PolicyHandler extends GenericDAO<Policy, Long> {
-  Policy save(Policy p);
+public interface NPolicyHandler extends GenericDAO<NationalPolicy, Long> {
+	NationalPolicy save(NationalPolicy p);
 }

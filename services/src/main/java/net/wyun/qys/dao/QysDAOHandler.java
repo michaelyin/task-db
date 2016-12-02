@@ -23,7 +23,7 @@ package net.wyun.qys.dao;
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */
 public interface QysDAOHandler {
-  public PolicyHandler getPolicyHandler();
+  public NPolicyHandler getNPolicyHandler();
   public UserSettingHandler getUserSettingHandler();
   public StandardHandler getStandardHandler();
   public StanJcrFileHandler getStanJcrFileHandler();
