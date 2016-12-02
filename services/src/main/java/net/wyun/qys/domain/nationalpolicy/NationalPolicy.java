@@ -1,27 +1,18 @@
 package net.wyun.qys.domain.nationalpolicy;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.exoplatform.commons.api.persistence.ExoEntity;
 
 import net.wyun.qys.domain.Policy;
-import net.wyun.qys.domain.standard.StanJcrFile;
-import net.wyun.qys.domain.standard.StanTag;
 
 @Entity(name = "npolicy")
 @ExoEntity
@@ -31,14 +22,22 @@ public class NationalPolicy extends Policy{
 	 NPSourceType source;
 	 NPolicyType type;
 	
-	 @OneToMany(mappedBy="policy", cascade={CascadeType.ALL}, targetEntity=StanTag.class, fetch=FetchType.EAGER)
+	 @OneToMany(mappedBy="policy", cascade={CascadeType.ALL}, targetEntity=NPTag.class, fetch=FetchType.EAGER)
 	  //@JoinColumn(name="stan_id", referencedColumnName="id")
 	  private Set<NPTag> policyTags = new HashSet<NPTag>();
 	  
 	  @JsonBackReference
-	  @OneToMany(mappedBy="policy", cascade={CascadeType.ALL}, targetEntity=StanJcrFile.class, fetch=FetchType.EAGER)
+	  @OneToMany(mappedBy="policy", cascade={CascadeType.ALL}, targetEntity=NPJcrFile.class, fetch=FetchType.EAGER)
 	  //@JoinColumn(name="stan_id", referencedColumnName="id")
 	  private Set<NPJcrFile> jcrFiles = new HashSet<NPJcrFile>();
+
+	public Set<NPJcrFile> getJcrFiles() {
+		return jcrFiles;
+	}
+
+	public void setJcrFiles(Set<NPJcrFile> jcrFiles) {
+		this.jcrFiles = jcrFiles;
+	}
 
 	public NPSourceType getSource() {
 		return source;
@@ -64,12 +63,5 @@ public class NationalPolicy extends Policy{
 		this.policyTags = policyTags;
 	}
 
-	public Set<NPJcrFile> getJcrFiles() {
-		return jcrFiles;
-	}
-
-	public void setStanJcrFiles(Set<NPJcrFile> jcrFiles) {
-		this.jcrFiles = jcrFiles;
-	}
 
 }
