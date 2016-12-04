@@ -130,6 +130,6 @@ public class NPJcrFile implements Serializable{
 
 	@Override
 	public String toString() {
-		return "{'fileName':'" + fileName + "','uuid':'" + uuid + "'}";
+		return "{'fileName':'" + fileName + "','uuid':'" + uuid + "','type':'" + type + "'}";
 	}
 }
