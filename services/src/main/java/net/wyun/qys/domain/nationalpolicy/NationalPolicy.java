@@ -17,7 +17,7 @@ import net.wyun.qys.domain.Policy;
 import net.wyun.qys.domain.standard.StanJcrFile;
 import net.wyun.qys.domain.standard.StanTag;
 
-@Entity(name = "npolicy")
+@Entity(name = "NationalPolicy")
 @ExoEntity
 @Table(name = "qys_national_policy")
 public class NationalPolicy extends Policy{
