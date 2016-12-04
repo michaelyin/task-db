@@ -27,6 +27,12 @@
       <column name="type" type="INTEGER">
         <constraints nullable="false"/>
       </column>
+      <column name="province" type="NVARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="city" type="NVARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
       <column name="creator" type="NVARCHAR(50)">
         <constraints nullable="false"/>
       </column>

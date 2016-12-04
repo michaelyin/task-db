@@ -41,6 +41,26 @@ public class LocalPolicy extends Policy{
 	  @OneToMany(mappedBy="policy", cascade={CascadeType.ALL}, targetEntity=LPJcrFile.class, fetch=FetchType.EAGER)
 	  //@JoinColumn(name="stan_id", referencedColumnName="id")
 	  private Set<LPJcrFile> jcrFiles = new HashSet<LPJcrFile>();
+	  
+	  private String province;
+	  private String city;
+	  
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	public Set<LPJcrFile> getJcrFiles() {
 		return jcrFiles;
