@@ -19,6 +19,9 @@
 
 package net.wyun.qys.service.impl;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -32,6 +35,7 @@ import org.exoplatform.social.core.service.LinkProvider;
 
 import net.wyun.qys.dao.QysDAOHandler;
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NPSourceType;
 import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 import net.wyun.qys.model.User;
 import net.wyun.qys.service.NationalPolicyService;
@@ -68,5 +72,21 @@ public class NPolicyServiceImpl implements NationalPolicyService {
 	public NationalPolicy save(NationalPolicy p) {
 		LOG.info("save policy: " + p.getName());
 		return daoHandler.getNPolicyHandler().save(p);
+	}
+
+	@Override
+	@ExoTransactional
+	public NationalPolicy update(NationalPolicy s) {
+		return daoHandler.getNPolicyHandler().update(s);
+	}
+
+	@Override
+	public NationalPolicy findById(String uuid) {
+		return daoHandler.getNPolicyHandler().findById(uuid);
+	}
+
+	@Override
+	public List<NationalPolicy> findByTypes(Set<NPSourceType> types) {
+		return daoHandler.getNPolicyHandler().findByTypes(types);
 	}
 }

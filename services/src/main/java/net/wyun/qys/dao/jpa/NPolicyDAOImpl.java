@@ -16,28 +16,14 @@
 */
 package net.wyun.qys.dao.jpa;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Order;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
-import org.exoplatform.commons.utils.ListAccess;
-
-import net.wyun.qys.dao.OrderBy;
 import net.wyun.qys.dao.NPolicyHandler;
-import net.wyun.qys.dao.condition.Conditions;
-import net.wyun.qys.dao.condition.SingleCondition;
-import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NPSourceType;
 import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 
 /**
@@ -59,6 +45,25 @@ public class NPolicyDAOImpl extends CommonJPADAO<NationalPolicy, Long> implement
 	public NationalPolicy save(NationalPolicy p) {
 
 		return super.create(p);
+	}
+
+	@Override
+	public NationalPolicy findById(String uuid) {
+		return super.getEntityManager().find(NationalPolicy.class, uuid);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<NationalPolicy> findByTypes(Set<NPSourceType> types) {
+		if(types.isEmpty()){
+			//select all
+			return this.findAll();
+		}
+		
+		final String paraQuery = "From NationalPolicy np WHERE np.source in :selected";
+		return (List<NationalPolicy>) getEntityManager().createQuery(paraQuery)
+				.setParameter("selected", types)
+				.getResultList();
 	}
 
 }

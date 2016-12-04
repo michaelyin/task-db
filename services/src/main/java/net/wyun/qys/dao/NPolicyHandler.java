@@ -19,13 +19,21 @@
 
 package net.wyun.qys.dao;
 
+import java.util.List;
+import java.util.Set;
+
 import org.exoplatform.commons.api.persistence.GenericDAO;
 
 import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.nationalpolicy.NPSourceType;
 import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
+import net.wyun.qys.domain.standard.Standard;
+import net.wyun.qys.domain.standard.StandardType;
 
 /**
  */
 public interface NPolicyHandler extends GenericDAO<NationalPolicy, Long> {
 	NationalPolicy save(NationalPolicy p);
+	NationalPolicy findById(String uuid);
+	List<NationalPolicy> findByTypes(Set<NPSourceType> types);
 }

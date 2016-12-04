@@ -20,7 +20,10 @@
 package net.wyun.qys.service;
 
 
-import net.wyun.qys.domain.Policy;
+import java.util.List;
+import java.util.Set;
+
+import net.wyun.qys.domain.nationalpolicy.NPSourceType;
 import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 
 /**
@@ -28,5 +31,9 @@ import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 public interface NationalPolicyService {
 
 	NationalPolicy save(NationalPolicy p);
+	NationalPolicy update(NationalPolicy s);
+
+	NationalPolicy findById(String uuid);
+	List<NationalPolicy> findByTypes(Set<NPSourceType> types);
 
 }
