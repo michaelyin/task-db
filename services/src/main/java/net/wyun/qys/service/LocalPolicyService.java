@@ -17,17 +17,23 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package net.wyun.qys.dao;
+package net.wyun.qys.service;
+
+
+import java.util.List;
+import java.util.Set;
+
+import net.wyun.qys.domain.localpolicy.LPSourceType;
+import net.wyun.qys.domain.localpolicy.LocalPolicy;
 
 /**
- * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */
-public interface QysDAOHandler {
-  public LPolicyHandler getLPolicyHandler();
-  public NPolicyHandler getNPolicyHandler();
-  public UserSettingHandler getUserSettingHandler();
-  public StandardHandler getStandardHandler();
-  public StanJcrFileHandler getStanJcrFileHandler();
+public interface LocalPolicyService {
 
-  
+	LocalPolicy save(LocalPolicy p);
+	LocalPolicy update(LocalPolicy s);
+
+	LocalPolicy findById(String uuid);
+	List<LocalPolicy> findByTypes(Set<LPSourceType> types);
+
 }

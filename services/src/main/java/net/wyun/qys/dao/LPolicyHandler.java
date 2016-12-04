@@ -19,15 +19,23 @@
 
 package net.wyun.qys.dao;
 
-/**
- * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
- */
-public interface QysDAOHandler {
-  public LPolicyHandler getLPolicyHandler();
-  public NPolicyHandler getNPolicyHandler();
-  public UserSettingHandler getUserSettingHandler();
-  public StandardHandler getStandardHandler();
-  public StanJcrFileHandler getStanJcrFileHandler();
+import java.util.List;
+import java.util.Set;
 
-  
+import org.exoplatform.commons.api.persistence.GenericDAO;
+
+import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.localpolicy.LPSourceType;
+import net.wyun.qys.domain.localpolicy.LocalPolicy;
+import net.wyun.qys.domain.nationalpolicy.NPSourceType;
+import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
+import net.wyun.qys.domain.standard.Standard;
+import net.wyun.qys.domain.standard.StandardType;
+
+/**
+ */
+public interface LPolicyHandler extends GenericDAO<LocalPolicy, Long> {
+	LocalPolicy save(LocalPolicy p);
+	LocalPolicy findById(String uuid);
+	List<LocalPolicy> findByTypes(Set<LPSourceType> types);
 }
