@@ -25,7 +25,7 @@ import net.wyun.qys.domain.nationalpolicy.NPJcrFile;
 import net.wyun.qys.domain.nationalpolicy.NPTag;
 
 
-@Entity(name = "lpolicy")
+@Entity(name = "LocalPolicy")
 @ExoEntity
 @Table(name = "qys_local_policy")
 public class LocalPolicy extends Policy{
