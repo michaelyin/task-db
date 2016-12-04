@@ -38,6 +38,7 @@ import net.wyun.qys.domain.localpolicy.LPSourceType;
 import net.wyun.qys.domain.localpolicy.LPTag;
 import net.wyun.qys.domain.localpolicy.LPolicyType;
 import net.wyun.qys.domain.localpolicy.LocalPolicy;
+import net.wyun.qys.domain.localpolicy.Province;
 import net.wyun.qys.domain.nationalpolicy.NPJcrFile;
 import net.wyun.qys.domain.nationalpolicy.NPSourceType;
 import net.wyun.qys.domain.nationalpolicy.NPTag;
@@ -84,7 +85,7 @@ public class TestLocalPolicyDAO extends AbstractTest {
   @Test
   public void testPolicyCreation() {
 	  
-	LocalPolicy task = this.createLocalPolicy("国标2015", LPSourceType.工信厅);
+	LocalPolicy task = this.createLocalPolicy("国标2015", LPolicyType.保险, Province.内蒙古);
     sDAO.save(task);
 
     List<LocalPolicy> list = sDAO.findAll();
@@ -99,14 +100,18 @@ public class TestLocalPolicyDAO extends AbstractTest {
 
   @Test
   public void testFindStanByType() throws Exception {
-	  LocalPolicy task = this.createLocalPolicy("国标2015", LPSourceType.能源局);
+	  LocalPolicy task = this.createLocalPolicy("国标2015", LPolicyType.二手车, Province.四川);
 	    sDAO.save(task);
 	    
-	    task = this.createLocalPolicy("国标2014", LPSourceType.科技厅);
+	    task = this.createLocalPolicy("国标2014", LPolicyType.保险, Province.内蒙古);
 	    sDAO.save(task);
 	    
-	    task = this.createLocalPolicy("国标2016", LPSourceType.工信厅);
+	    task = this.createLocalPolicy("国标2016", LPolicyType.回收利用, Province.台湾);
 	    sDAO.save(task);
+	    
+	    task = this.createLocalPolicy("国标2016", LPolicyType.后市场, Province.台湾);
+	    sDAO.save(task);
+
 
 	    List<LocalPolicy> list = sDAO.findAll();
 	    
@@ -114,35 +119,58 @@ public class TestLocalPolicyDAO extends AbstractTest {
 	        System.out.println(t.toString());
 	      }    
 	    
-	    Assert.assertEquals(3, list.size());
+	    Assert.assertEquals(4, list.size());
 	    
-	    Set<LPSourceType> ss = new HashSet<LPSourceType>();
-	    ss.add(LPSourceType.能源局);
-	    ss.add(LPSourceType.科技厅);
+	    Set<LPolicyType> ss = new HashSet<LPolicyType>();
+	    Set<Province>    sp = new HashSet<Province>();
 	    
-	    list = sDAO.findByTypes(ss);
+	    //all
+	    list = sDAO.findByTypes(ss, sp);
+	    Assert.assertEquals(4, list.size());
+	    
+	    //ss
+	    ss.add(LPolicyType.二手车);
+	    ss.add(LPolicyType.回收利用);
+	    
+	    list = sDAO.findByTypes(ss, sp);
 	    for(LocalPolicy s:list){
 	    	System.out.println("type: " + s.getType());
 	    }
-	    
 	    Assert.assertEquals(2, list.size());
-
+	    
+	    
+	    //ss + sp
+	    sp.add(Province.台湾);
+	    list = sDAO.findByTypes(ss, sp);
+	    for(LocalPolicy s:list){
+	    	System.out.println("type: " + s.getType());
+	    }
+	    Assert.assertEquals(1, list.size());
+	    
+	   //sp
+	    ss.clear();
+	    list = sDAO.findByTypes(ss, sp);
+	    for(LocalPolicy s:list){
+	    	System.out.println("type: " + s.getType());
+	    }
+	    Assert.assertEquals(2, list.size());
+	    
   }  
 
     
-  private LocalPolicy createLocalPolicy(String name, LPSourceType type){
+  private LocalPolicy createLocalPolicy(String name, LPolicyType type, Province province){
 	  LocalPolicy s = new LocalPolicy();
 	  //s.setName("国家标准2016");
 	  s.setName(name);
 	  s.setCreateDate(new Date());
 	  s.setNum("001-2960-2016");
-	  s.setType(LPolicyType.二手车);
-	  s.setSource(type);
+	  s.setType(type);
+	  s.setSource(LPSourceType.科技厅);
 	  s.setE_uuid("4eb65550-a36a-11e6-80f5-76304dec7eb7");
 	  s.setCreator("michaelyin");
 	  s.setDepartment("math");
 	  s.setCity("南昌");
-	  s.setProvince("江西");
+	  s.setProvince(province);
 	  
 	  LPJcrFile jFile = new LPJcrFile();
 	  jFile.setFileName("testfile.txt");

@@ -25,8 +25,9 @@ import java.util.Set;
 import org.exoplatform.commons.api.persistence.GenericDAO;
 
 import net.wyun.qys.domain.Policy;
-import net.wyun.qys.domain.localpolicy.LPSourceType;
+import net.wyun.qys.domain.localpolicy.LPolicyType;
 import net.wyun.qys.domain.localpolicy.LocalPolicy;
+import net.wyun.qys.domain.localpolicy.Province;
 import net.wyun.qys.domain.nationalpolicy.NPSourceType;
 import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 import net.wyun.qys.domain.standard.Standard;
@@ -37,5 +38,5 @@ import net.wyun.qys.domain.standard.StandardType;
 public interface LPolicyHandler extends GenericDAO<LocalPolicy, Long> {
 	LocalPolicy save(LocalPolicy p);
 	LocalPolicy findById(String uuid);
-	List<LocalPolicy> findByTypes(Set<LPSourceType> types);
+	List<LocalPolicy> findByTypes(Set<LPolicyType> types, Set<Province> provinces);
 }

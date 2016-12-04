@@ -42,15 +42,15 @@ public class LocalPolicy extends Policy{
 	  //@JoinColumn(name="stan_id", referencedColumnName="id")
 	  private Set<LPJcrFile> jcrFiles = new HashSet<LPJcrFile>();
 	  
-	  private String province;
+	  private Province province;
 	  private String city;
 	  
 
-	public String getProvince() {
+	public Province getProvince() {
 		return province;
 	}
 
-	public void setProvince(String province) {
+	public void setProvince(Province province) {
 		this.province = province;
 	}
 

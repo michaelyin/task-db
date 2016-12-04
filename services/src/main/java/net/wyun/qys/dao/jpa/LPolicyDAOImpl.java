@@ -23,8 +23,9 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import net.wyun.qys.dao.LPolicyHandler;
-import net.wyun.qys.domain.localpolicy.LPSourceType;
+import net.wyun.qys.domain.localpolicy.LPolicyType;
 import net.wyun.qys.domain.localpolicy.LocalPolicy;
+import net.wyun.qys.domain.localpolicy.Province;
 import net.wyun.qys.domain.nationalpolicy.NPSourceType;
 import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 
@@ -53,18 +54,42 @@ public class LPolicyDAOImpl extends CommonJPADAO<LocalPolicy, Long> implements L
 		return super.getEntityManager().find(LocalPolicy.class, uuid);
 	}
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<LocalPolicy> findByTypes(Set<LPSourceType> types) {
-		if(types.isEmpty()){
+	public List<LocalPolicy> findByTypes(Set<LPolicyType> types, Set<Province> provinces) {
+		
+		List<LocalPolicy> l = null;
+		if(types.isEmpty() && provinces.isEmpty()){
 			//select all
-			return this.findAll();
+			l = this.findAll();
 		}
 		
-		final String paraQuery = "From LocalPolicy np WHERE np.source in :selected";
-		return (List<LocalPolicy>) getEntityManager().createQuery(paraQuery)
-				.setParameter("selected", types)
-				.getResultList();
+		if(!types.isEmpty() && provinces.isEmpty()){
+			final String paraQuery = "From LocalPolicy np WHERE np.type in :selected";
+			l = (List<LocalPolicy>) getEntityManager().createQuery(paraQuery)
+					.setParameter("selected", types)
+					.getResultList();
+		}
+		
+		if(types.isEmpty() && !provinces.isEmpty()){
+			final String paraQuery = "From LocalPolicy np WHERE np.province in :selected";
+			l = (List<LocalPolicy>) getEntityManager().createQuery(paraQuery)
+					.setParameter("selected", provinces)
+					.getResultList();
+		}
+		
+		if(!types.isEmpty() && !provinces.isEmpty()){
+			final String paraQuery = "From LocalPolicy np WHERE np.type in :types and np.province in :provinces";
+			l = (List<LocalPolicy>) getEntityManager().createQuery(paraQuery)
+					.setParameter("types", types)
+					.setParameter("provinces", provinces)
+					.getResultList();
+		}
+		
+		return l;
 	}
 
 }

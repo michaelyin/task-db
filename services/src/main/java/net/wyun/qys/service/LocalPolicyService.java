@@ -24,7 +24,9 @@ import java.util.List;
 import java.util.Set;
 
 import net.wyun.qys.domain.localpolicy.LPSourceType;
+import net.wyun.qys.domain.localpolicy.LPolicyType;
 import net.wyun.qys.domain.localpolicy.LocalPolicy;
+import net.wyun.qys.domain.localpolicy.Province;
 
 /**
  */
@@ -34,6 +36,6 @@ public interface LocalPolicyService {
 	LocalPolicy update(LocalPolicy s);
 
 	LocalPolicy findById(String uuid);
-	List<LocalPolicy> findByTypes(Set<LPSourceType> types);
+	List<LocalPolicy> findByTypes(Set<LPolicyType> types, Set<Province> provinces);
 
 }

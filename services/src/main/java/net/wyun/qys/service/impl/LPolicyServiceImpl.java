@@ -36,7 +36,9 @@ import org.exoplatform.social.core.service.LinkProvider;
 import net.wyun.qys.dao.QysDAOHandler;
 import net.wyun.qys.domain.Policy;
 import net.wyun.qys.domain.localpolicy.LPSourceType;
+import net.wyun.qys.domain.localpolicy.LPolicyType;
 import net.wyun.qys.domain.localpolicy.LocalPolicy;
+import net.wyun.qys.domain.localpolicy.Province;
 import net.wyun.qys.domain.nationalpolicy.NationalPolicy;
 import net.wyun.qys.model.User;
 import net.wyun.qys.service.LocalPolicyService;
@@ -88,7 +90,7 @@ public class LPolicyServiceImpl implements LocalPolicyService {
 	}
 
 	@Override
-	public List<LocalPolicy> findByTypes(Set<LPSourceType> types) {
-		return daoHandler.getLPolicyHandler().findByTypes(types);
+	public List<LocalPolicy> findByTypes(Set<LPolicyType> types, Set<Province> provinces) {
+		return daoHandler.getLPolicyHandler().findByTypes(types, provinces);
 	}
 }
