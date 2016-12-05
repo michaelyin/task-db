@@ -20,6 +20,10 @@
     <key>net.wyun.qys.service.NationalPolicyService</key>
     <type>net.wyun.qys.service.impl.NPolicyServiceImpl</type>
   </component>
+   <component>
+    <key>net.wyun.qys.service.LocalPolicyService</key>
+    <type>net.wyun.qys.service.impl.LPolicyServiceImpl</type>
+  </component>
   
   <component>
     <key>net.wyun.qys.service.StandardService</key>
